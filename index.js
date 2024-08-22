@@ -9,13 +9,16 @@ const app = express();
 
 global.__basedir = __dirname;
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-mongoose.connect("mongodb://localhost:27017");
+
+mongoose.connect(
+  "mongodb+srv://koliyalritik50:cigwLDkqgxVqmruP@cluster0.5cq36.mongodb.net/"
+);
 
 mongoose.connection.on("connected", () => {
   console.log("Db connected ");
 });
 mongoose.connection.on("error", () => {
-  console.log("Db not connected ");
+  console.log("not  connected ");
 });
 
 require("./model/user.model");
